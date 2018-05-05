@@ -1,0 +1,39 @@
+#!/bin/bash
+
+if (( $# != 8 )); then
+echo "name font size extra xoffs yoffs choptop height"
+exit
+fi
+
+name=$1
+# font=/usr/share/fonts/truetype/Roboto-Bold.ttf
+font=$2  # /usr/share/fonts/truetype/LiberationSerif-Bold.ttf
+# pointsize=12
+pointsize=$3  # 17
+extra=$4
+xoffs=$5
+yoffs=$6
+choptop=$7
+height=$8
+bgcolor='gray(0)'  # 0
+fgcolor='gray(1)'  # 1
+shcolor='gray(7)'  # 7
+
+mkdir "$name"
+
+for i in {0000..0223}; do
+
+string=$(printf "\\x$(printf "%x" $((10#$i+32)))" | iconv -f WINDOWS-1252)
+
+if [ "$string" == "" ]; then
+string="?"
+fi
+
+echo -n -e "$string" |\
+convert -set colorspace gray -background none -fill "$fgcolor" -font "$font" -pointsize "$pointsize" +antialias label:@- \
+        \( +clone -background "$shcolor" -shadow "100x0+$xoffs+$yoffs" \) +swap -background "$bgcolor" \
+        -layers merge +repage  -crop "x$height+0+$choptop!" -layers flatten -depth 8 "$name/g_$i.pgm"
+
+done
+
+mdcii-bshpacker -o "$name.zei" -f pnm -b 8 -n 224 -p "$name/g_" -s ZEI -e "$((1 + $xoffs - $extra))"

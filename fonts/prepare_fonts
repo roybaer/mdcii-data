@@ -1,0 +1,15 @@
+#!/bin/bash
+
+./font_renderer zei2 /usr/share/fonts/truetype/LiberationSerif-Regular.ttf 10 2 1 0 -1 14
+./font_renderer zei9a /usr/share/fonts/truetype/LiberationSans-Bold.ttf 9 0 1 1 0 10
+./font_renderer zei11a /usr/share/fonts/truetype/LiberationSans-Regular.ttf 11 0 1 1 0 12
+./font_renderer zei14a /usr/share/fonts/truetype/LiberationSans-Regular.ttf 14 0 1 1 1 17
+./font_renderer zei14v /usr/share/fonts/truetype/Roboto-Bold.ttf 11 0 1 1 0 15
+./font_renderer zei16g /usr/share/fonts/truetype/LiberationSerif-Bold.ttf 15 1 1 1 2 17
+./font_renderer zei16h /usr/share/fonts/truetype/NotoSans-ExtraCondensedSemiBold.ttf 16 -1 1 1 5 18
+./font_renderer zei16v /usr/share/fonts/truetype/Roboto-Bold.ttf 12 0 1 1 0 18
+./font_renderer zei20h /usr/share/fonts/truetype/NotoSans-ExtraCondensedSemiBold.ttf 20 -1 1 1 7 21
+./font_renderer zei20v /usr/share/fonts/truetype/Roboto-Bold.ttf 19 0 1 1 2 24
+
+./font_renderer zei24v /usr/share/fonts/truetype/Roboto-Bold.ttf 26 0 1 1 4 28
+./font_renderer zei28v /usr/share/fonts/truetype/Roboto-Bold.ttf 30 0 1 1 6 32
